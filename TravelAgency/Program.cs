@@ -7,6 +7,7 @@ using log4net.Config;
 using log4net.Repository.Hierarchy;
 using TravelAgency.repository;
 using TravelAgency.repository.impl;
+using TravelAgency.service;
 
 namespace TravelAgency
 {
@@ -29,6 +30,7 @@ namespace TravelAgency
             return returnValue;
         }
 
+        [STAThread]
         static void Main(string[] args)
         {
             string configPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "log4net.config");
@@ -50,19 +52,27 @@ namespace TravelAgency
             IDictionary<String, String> props = new Dictionary<String, String>();
             props.Add("connectionString", GetConnectionStringByName("travel_agency"));
 
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
+            
             // Create an instance of AgentRepositoryImpl
             IAgentRepository agentRepository = new AgentRepositoryImpl(props);
             IFlightRepository flightRepository = new FlightRepositoryImpl(props);
             IBookingRepository bookingRepository = new BookingRepositoryImpl(props);
 
+            Service service = new Service(agentRepository, flightRepository, bookingRepository);
+            Application.Run(new LoginForm(service));
+            
             
             /*Tests for repo's CRUD functions*/
-            TestAgentRepo(agentRepository);
-            TestFlightRepo(flightRepository);
-            TestBookingRepo(bookingRepository);
+            //TestAgentRepo(agentRepository);
+            //TestFlightRepo(flightRepository);
+            //TestBookingRepo(bookingRepository);
         }
+        
+        /*
         private static void TestAgentRepo(IAgentRepository agentRepository){
-            /*FIND ONE*/
+            /*FIND ONE
             long agentId = 1;
             Agent agent = agentRepository.FindOne(agentId);
             
@@ -75,12 +85,19 @@ namespace TravelAgency
                 Console.WriteLine("Agent not found.");
             }
             
-            /*SAVE*/
-            /*
-            Agent agent_to_save = new Agent("Pop Dana", "12345");
-            agentRepository.Save(agent_to_save);*/
+            /*SAVE
             
-            /*FIND_ALL*/
+            Agent agent_to_save = new Agent("Lucian Serban", "12345");
+            agentRepository.Save(agent_to_save);
+            
+            Agent agent_to_save2 = new Agent("Pop Maria", "parola");
+            agentRepository.Save(agent_to_save2);
+            
+            Agent agent_to_save3 = new Agent("Andreica John", "12345");
+            agentRepository.Save(agent_to_save3);
+
+            
+            /*FIND_ALL
             IEnumerable<Agent> agents = agentRepository.FindAll();
             foreach (var a in agents)
             {
@@ -107,7 +124,7 @@ namespace TravelAgency
             /*
             Flight flightToSave = new Flight("New York", DateTime.Now, "JFK", 100);
             flightRepository.Save(flightToSave);
-            */
+            
             
             // FIND ALL
             IEnumerable<Flight> flights = flightRepository.FindAll();
@@ -138,7 +155,7 @@ namespace TravelAgency
             List<string> passengers = new List<string> { "John Doe", "Jane Smith" };
             Booking bookingToSave = new Booking(flight, passengers, 2);
             bookingRepository.Save(bookingToSave);
-            */
+            
             
             // FIND ALL
             IEnumerable<Booking> bookings = bookingRepository.FindAll();
@@ -146,7 +163,7 @@ namespace TravelAgency
             {
                 Console.WriteLine($"Booking: {b.Id}, Flight to {b.Flight.Destination}, {b.Passengers.Count} passengers, {b.NumberOfSeats} seats");
             }
-        }
+        }*/
     }
 }
 
