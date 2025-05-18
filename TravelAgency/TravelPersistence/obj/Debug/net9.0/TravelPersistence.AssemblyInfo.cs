@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("TravelPersistence")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5925ee660e5c3af2a66e55ecd969af9502a654d4")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+39f37bb3b5dfd8adb8838565c857c43c81e6f530")]
 [assembly: System.Reflection.AssemblyProductAttribute("TravelPersistence")]
 [assembly: System.Reflection.AssemblyTitleAttribute("TravelPersistence")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
