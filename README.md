@@ -1,8 +1,8 @@
-# 🧳 Travel Agency C# Application
+# Travel Agency C# Application
 
 This project was developed as part of a university assignment and implements a multi-stage travel agency system using C#. The application allows travel agency employees to log in, search for flights, book tickets for tourists, and receive real-time updates on flight availability.
 
-## 🧩 Project Overview
+## Project Overview
 
 Multiple travel agencies use a common airline to book tickets for their customers. Each agency employee interacts with the system through a desktop application with the following core features:
 
@@ -14,7 +14,7 @@ Multiple travel agencies use a common airline to book tickets for their customer
 
 ---
 
-## 🛠️ Technologies Used
+## Technologies Used
 
 - **C# / .NET Framework**
 - **Windows Forms (WinForms)**
@@ -25,7 +25,7 @@ Multiple travel agencies use a common airline to book tickets for their customer
 
 ---
 
-## 🌳 Branches
+## Branches
 
 ### `networking-part` – Client-Server Architecture (C# only)
 Implements the system entirely in C#, with modular separation into:
@@ -38,7 +38,7 @@ Implements the system entirely in C#, with modular separation into:
 
 The communication is implemented via a custom JSON-based protocol between the client and the server.
 
-  > 🔥 This is the current version on the `main` branch.
+  >  This is the current version on the `main` branch.
 
 ### `server-csharp` – Cross-Platform Phase (Java Client + C# Server)
 This branch contains the C# implementation of the **server** used during the cross-platform development phase, where the client was implemented in Java.
@@ -57,7 +57,7 @@ This branch demonstrates how to **consume a REST API** (implemented in Java with
 
 ---
 
-## 📁 Project Structure
+## Project Structure
 
 Each module corresponds to a logical component of the application:
 
@@ -70,7 +70,7 @@ Each module corresponds to a logical component of the application:
 
 ---
 
-## 🧪 Features Recap
+## Features Recap
 
 - Search flights by criteria
 - Book seats with tourist details
@@ -80,13 +80,13 @@ Each module corresponds to a logical component of the application:
 
 ---
 
-## 🔗 Related Projects
+## Related Projects
 
 - [TravelAgencyJavaApp (Java version with REST/WebSockets/React)](https://github.com/OtiliaN/TravelAgencyJavaApp) – Java counterpart of this C# project, including cross-platform integration.
 
 ---
 
-## 📌 Notes
+## Notes
 
 This project demonstrates not only a standard client-server application in C#, but also:
 - Cross-platform interoperability via gRPC
